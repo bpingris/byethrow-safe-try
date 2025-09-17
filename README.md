@@ -1,26 +1,25 @@
-# bun starter
+# byethrow safeTry
 
-## Getting Started
+```ts
+import { R } from '@praha/byethrow'
+import { safeTry } from 'byethrow-safe-try'
 
-Click the [Use this template](https://github.com/wobsoriano/bun-lib-starter/generate) button to create a new repository with the contents starter.
+function computeSomething() {
+    if (Math.random() > 0.5) {
+        return R.succeed(1)
+    } 
+    return R.fail('error')
+}
 
-OR
+const result = safeTry(function*(_) {
+    const a = yield* _(computeSomething())
+    const b = yield* _(computeSomething())
+    return R.succeed(a + b)
+})
 
-Run `bun create wobsoriano/bun-lib-starter ./my-lib`.
-
-## Setup
-
-```bash
-# install dependencies
-bun install
-
-# test the app
-bun test
-
-# build the app, available under dist
-bun run build
+if (R.isSuccess(result)) {
+    console.log(R.unwrap(result)) // 2
+} else {
+    console.log(R.unwrapError(result)) // 'error'
+}
 ```
-
-## License
-
-MIT
