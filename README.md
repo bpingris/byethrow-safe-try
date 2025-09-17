@@ -1,5 +1,7 @@
 # byethrow safeTry
 
+utility for @praha/byethrow to mimic the rust `?` operator, similar to [neverthrow safeTry](https://github.com/supermacro/neverthrow#safetry), or [Effect generators](https://effect.website/docs/getting-started/using-generators/).
+
 ```ts
 import { R } from '@praha/byethrow'
 import { safeTry } from 'byethrow-safe-try'
