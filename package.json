@@ -1,40 +1,41 @@
 {
-  "name": "byethrow-safe-try",
-  "type": "module",
-  "version": "0.0.4",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "description": "",
-  "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
-  },
-  "scripts": {
-    "build": "bun run build.ts",
-    "prepublishOnly": "bun run build",
-    "dev": "bun run src/index.ts"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "bun"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/bpingris/byethrow-safe-try#byethrow-safetry",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bpingris/byethrow-safe-try.git"
-  },
-  "bugs": "https://github.com/bpingris/byethrow-safe-try/issues",
-  "author": "Benoit Pingris <benoit.pingris@pm.me>",
-  "devDependencies": {
-    "bun-plugin-dts": "0.3.0",
-    "@types/bun": "1.2.22"
-  },
-  "peerDependencies": {
-    "@praha/byethrow": "^0.7.0"
-  }
+	"name": "byethrow-safe-try",
+	"type": "module",
+	"version": "0.0.4",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"description": "",
+	"exports": {
+		"types": "./dist/index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
+	},
+	"scripts": {
+		"build": "bun run build.ts",
+		"prepublishOnly": "bun run build",
+		"dev": "bun run src/index.ts"
+	},
+	"files": [
+		"dist"
+	],
+	"keywords": [
+		"bun"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/bpingris/byethrow-safe-try#byethrow-safetry",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bpingris/byethrow-safe-try.git"
+	},
+	"bugs": "https://github.com/bpingris/byethrow-safe-try/issues",
+	"author": "Benoit Pingris <benoit.pingris@pm.me>",
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.4",
+		"@types/bun": "1.2.22",
+		"bun-plugin-dts": "0.3.0"
+	},
+	"peerDependencies": {
+		"@praha/byethrow": "^0.7.0"
+	}
 }

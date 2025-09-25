@@ -26,6 +26,10 @@ jobs:
         name: Install dependencies
         run: |
           bun install
+      - id: typecheck
+        name: Typecheck
+        run: |
+          bunx tsc --noEmit
       - id: test
         name: Run test
         run: |
