@@ -1,4 +1,5 @@
-import { describe, it, expect, mock, expectTypeOf } from "bun:test";
+/** biome-ignore-all lint/correctness/useYield: for test purposes */
+import { describe, expect, expectTypeOf, it, mock } from "bun:test";
 import { R } from "@praha/byethrow";
 import { safeTry } from "../src";
 

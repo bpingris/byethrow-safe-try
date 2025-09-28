@@ -7,6 +7,7 @@
         "@biomejs/biome": "^2.2.4",
         "@types/bun": "1.2.22",
         "bun-plugin-dts": "0.3.0",
+        "typescript": "^5.9.2",
       },
       "peerDependencies": {
         "@praha/byethrow": "^0.7.0",
