@@ -1,9 +1,13 @@
-import { R } from "@praha/byethrow";
+import type { R } from "@praha/byethrow";
 
-function adapter<T, E>(value: R.Result<T, E>) {
+// biome-ignore lint/suspicious/noExplicitAny: required for accurate type inference
+function adapter<Result extends R.Result<any, any>>(value: Result) {
 	return {
 		...value,
-		*[Symbol.iterator]() {
+		*[Symbol.iterator](): Generator<
+			R.Failure<R.InferFailure<Result>>,
+			R.InferSuccess<Result>
+		> {
 			if (value.type === "Success") {
 				return value.value;
 			} else {

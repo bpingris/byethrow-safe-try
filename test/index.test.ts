@@ -89,11 +89,22 @@ describe("safeTry", () => {
 	});
 
 	it("should merge all errors", async () => {
+		function computeWithMultipleErrors() {
+			if (Math.random() > 0.9) {
+				return R.fail({ tag: "error1" as const });
+			}
+			if (Math.random() > 0.5) {
+				return R.fail({ tag: "error2" as const });
+			}
+
+			return R.fail({ tag: "error3" as const });
+		}
+
 		const result = safeTry(async function* (_) {
-			yield* _(R.fail("error1" as const));
-			yield* _(R.fail("error2" as const));
-			yield* _(R.fail({ tag: "error3" as const }));
-			yield* _(await Promise.resolve(R.fail({ tag: "error4" as const })));
+			yield* _(computeWithMultipleErrors());
+			yield* _(R.fail({ tag: "error4" as const }));
+			yield* _(await Promise.resolve(R.fail({ tag: "error5" as const })));
+			yield* _(R.fail("error6" as const));
 
 			return R.succeed();
 		});
@@ -101,7 +112,12 @@ describe("safeTry", () => {
 		expectTypeOf(result).toEqualTypeOf<
 			R.ResultAsync<
 				void,
-				"error1" | "error2" | { tag: "error3" } | { tag: "error4" }
+				| { tag: "error1" }
+				| { tag: "error2" }
+				| { tag: "error3" }
+				| { tag: "error4" }
+				| { tag: "error5" }
+				| "error6"
 			>
 		>();
 
